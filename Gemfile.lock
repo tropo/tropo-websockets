@@ -2,14 +2,20 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.2)
+    awesome_print (0.3.1)
     em-websocket (0.1.4)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
     eventmachine (0.12.10)
+    json (1.4.6)
+    web-socket-ruby (0.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   em-websocket
   eventmachine
+  json
+  web-socket-ruby

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Tropo Websocket Demo</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://dl.dropbox.com/u/25511/javascripts/jquery.json-2.2.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://dl.dropbox.com/u/25511/javascripts/artisan.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+	var socket = new WebSocket("ws://sandite.orl.voxeo.net:8082");
+	
+	socket.onopen = function() {
+		socket.send($.toJSON({ type: 'subscriber', id: 'tropo-app1' }));
+	}
+	
+	socket.onmessage = function(msg) {
+		var response = jQuery.parseJSON(msg.data);
+		switch(response.command) {
+			case '1':
+			    artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/85fedec1-b9fc-423b-a124-9c2a00bdea99.jpg', 
+			                       10, 
+			                       30,
+			                       100,
+			                       100);
+				break;
+			case '2':
+				artisan.drawImage('drawspace',
+			                      'http://manishapatnaik.files.wordpress.com/2009/11/number-2.jpg', 
+			                       120, 
+			                       30,
+			                       100,
+			                       100);
+				break;
+			case '3':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/682ebd6b-d93b-406d-a8c1-9c2a00bdd886.jpg', 
+			                       240, 
+			                       30,
+			                       100,
+			                       100);
+				break;
+			case '4':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/5dadd9a2-c5f0-4bc0-92e4-9c2a00bdff61.jpg', 
+			                       10, 
+			                       150,
+			                       100,
+			                       100);
+				break;
+			case '5':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/213060f9-ef34-45fb-81e7-9c2a00bdd780.jpg',
+			                       120, 
+			                       150,
+			                       100,
+			                       100);
+				break;
+			case '6':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/2af8d401-99b3-4b54-ab1b-9c2a00bdc56d.jpg',
+			                       240, 
+			                       150,
+			                       100,
+			                       100);
+				break;
+			case '7':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/ef8e67ad-c9cd-4823-a10f-9c2a00bdf1d4.jpg', 
+			                       10, 
+			                       270,
+			                       100,
+			                       100);
+				break;
+			case '8':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/46a3359b-beff-4f50-8d05-9c2a00bdc933.jpg', 
+			                       120, 
+			                       270,
+			                       100,
+			                       100);
+				artisan.drawText('drawspace', 50, 90, '8');
+				break;
+			case '9':
+				artisan.drawImage('drawspace',
+			                      'http://comcastchd.vo.llnwd.net/o15/resized/1389a698-fd6e-44ee-af03-9c2a00be0c4e.jpg', 
+			                       240, 
+			                       270,
+			                       100,
+			                       100);
+				break;
+			default:
+				artisan.drawText('drawspace', 390, 150, 'Goodbye!');
+		}
+	}
+  </script>
+</head>
+  <body>
+	<img src="http://voxeo-labs.s3.amazonaws.com/Tropo-Horiz_200.png" height="" width=""></img>
+	<h1>WebSocket Demo</h1>
+    <canvas id='drawspace' width='1000' height='1000'>
+  	  <p>Your browser doesn't support canvas.</p>
+    </canvas>
+  </body>
+</html>
